@@ -47,6 +47,8 @@ $routes->get('/', function(){
 });
 //$routes->get('/', 'Templating::index');
 $routes->get('/admin', 'Templating::index');
+$routes->get('/register', 'Templating::reg');
+$routes->post('/saveRegister', 'Templating::saveRegister');
 $routes->get('/posts','PostController::index');
 
 $routes->get('/about', function(){
