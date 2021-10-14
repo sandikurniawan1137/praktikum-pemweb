@@ -196,7 +196,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin" class="nav-link active">
+                <a href="./index.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
@@ -204,7 +204,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/posts" class="nav-link">
+                <a href="/admin/posts" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>My Posts</p>
                 </a>
@@ -236,14 +236,44 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <!-- Bakalan diubah -->
-    <div class="container mt-3">
-      <div class="text-center">
-          <img src="/assets/images/linux.png" alt="logo" width="180" class="img-thumbnail rounded-circle">
-          <h1 class="display-4">Praktikum Web Lanjut Dengan Studi Kasus Blog App</h1>
-          <p class="lead">Programming | Codeigniter 4 | Php</p>
-      </div>
+    <div class="card">
+        <div class="card-header">
+            Form Tambah Posts
+        </div>
+        <div class="card-body">
+            <form action="admin/create/store" method="POST">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="judul">Judul Postingan</label>
+                            <input type="text" class="form-control" id="judul" name="judul">
+                        </div>
+                        <div class="form-group">
+                            <label for="slug">Slug</label>
+                            <input type="text" class="form-control" id="slug" name="slug">
+                        </div>
+                        <div class="form-group">
+                            <label for="kategori">Kategori Postingan</label>
+                            <input type="text" class="form-control" id="kategori" name="kategori">
+                        </div>
+                        <div class="form-group">
+                            <label for="author">Author Postingan</label>
+                            <input type="text" class="form-control" id="author" name="author">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane">Submit</i>
+                        </button>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="deskripsi">Deskripsi Postingan</label>
+                        <br>
+                        <textarea name="deskripsi" id="deskripsi"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+    <!-- Bakalan diubah -->
     </section>
     <!-- /.content -->
   </div>
@@ -265,3 +295,9 @@
 <!-- ./wrapper -->
 <!-- end of pemilihan konten -->
 <?= $this->endSection('content'); ?>
+
+<?php $this->section('myscript'); ?>
+<script>
+    $('#deskripsi').summernote()
+</script>
+<?= $this->endSection('myscript'); ?>
