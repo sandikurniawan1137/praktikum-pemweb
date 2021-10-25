@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\Controllers",
+    "\\app\\Database",
+    "\\app\\Database\\Seeds",
+    "\\app\\Models",
+    "\\app\\Views",
+    "\\app\\Views\\layouts",
+    "\\public",
+    "\\public\\assets",
+    "\\public\\assets\\adminlte"
+  ],
+  "SelectedNode": "\\app\\Controllers\\Templating.php",
+  "PreviewInSolutionExplorer": false
+}
