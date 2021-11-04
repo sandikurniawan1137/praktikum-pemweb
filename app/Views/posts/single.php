@@ -222,7 +222,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Tambah Post</h1>
+            <h1 class="m-0">Post</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -234,45 +234,14 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class="card">
-        <div class="card-header">
-            Form Tambah Posts
-        </div>
-        <div class="card-body">
-            <form action="/admin/posts/create/store" method="POST">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="judul">Judul Postingan</label>
-                            <input type="text" class="form-control" id="judul" name="judul">
-                        </div>
-                        <div class="form-group">
-                            <label for="slug">Slug</label>
-                            <input type="text" class="form-control" id="slug" name="slug">
-                        </div>
-                        <div class="form-group">
-                            <label for="kategori">Kategori Postingan</label>
-                            <input type="text" class="form-control" id="kategori" name="kategori">
-                        </div>
-                        <div class="form-group">
-                            <label for="author">Author Postingan</label>
-                            <input type="text" class="form-control" id="author" name="author">
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane">Submit</i>
-                        </button>
-                    </div>
-                    <div class="col-md-8">
-                        <label for="deskripsi">Deskripsi Postingan</label>
-                        <br>
-                        <textarea name="deskripsi" id="deskripsi"></textarea>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
     <!-- Bakalan diubah -->
-    </section>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h1><?= $posts['judul']; ?></h1><br>
+            <p><?= $posts['deskripsi']; ?></p>
+            <p>Slug : <?= $posts['slug']; ?></p>
+            <p>Author : <?= $posts['author']; ?></p>
+        </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -293,9 +262,3 @@
 <!-- ./wrapper -->
 <!-- end of pemilihan konten -->
 <?= $this->endSection('content'); ?>
-
-<?php $this->section('myscript'); ?>
-<script>
-    $('#deskripsi').summernote()
-</script>
-<?= $this->endSection('myscript'); ?>

@@ -1,11 +1,8 @@
-<!-- memanggil/menambah template -->
 <?= $this->extend('template'); ?>
-<!-- memilih isi konten -->
 <?= $this->section('content'); ?>
-<body class="hold-transition sidebar-mini layout-fixed">
 
 <div class="wrapper">
-
+<body class="hold-transition sidebar-mini layout-fixed">
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="/assets/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
@@ -165,22 +162,10 @@
           <img src="/assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Fanirizki Sofiyana</a>
         </div>
       </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
+      
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -222,7 +207,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Tambah Post</h1>
+            <h1 class="m-0">Edit Post</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -234,55 +219,83 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <div class="card">
-        <div class="card-header">
-            Form Tambah Posts
-        </div>
-        <div class="card-body">
-            <form action="/admin/posts/create/store" method="POST">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="judul">Judul Postingan</label>
-                            <input type="text" class="form-control" id="judul" name="judul">
+
+    
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Form Edit Posts
+            </div>
+            <div class="card-body">
+                <form action="/admin/posts/update/<?= $posts['post_id']; ?>" method="POST">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="judul">Judul Postingan</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('judul')) ? 'is-invalid' : ''; ?>" id="judul" name="judul" value="<?= $posts['judul']; ?>">
+                                <?php if ($validation->hasError('judul')): ?>
+                                  <div class="invalid-feedback">
+                                    <?= $validation->getError("judul"); ?>
+                                  </div>
+                                <?php endif; ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="slug">Slug</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('slug')) ? 'is-invalid' : ''; ?>" id="slug" name="slug" value="<?= $posts['slug']; ?>">
+                                <?php if ($validation->hasError('slug')): ?>
+                                  <div class="invalid-feedback">
+                                    <?= $validation->getError("slug"); ?>
+                                  </div>
+                                <?php endif; ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="kategori">Kategori Postingan</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('kategori')) ? 'is-invalid' : ''; ?>" id="kategori" name="kategori" value="<?= $posts['kategori']; ?>">
+                                <?php if ($validation->hasError('kategori')): ?>
+                                  <div class="invalid-feedback">
+                                    <?= $validation->getError("kategori"); ?>
+                                  </div>
+                                <?php endif; ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Author</label>
+                                <input type="text" class="form-control <?= ($validation->hasError('author')) ? 'is-invalid' : ''; ?>" id="author" name="author" value="<?= $posts['author']; ?>">
+                                <?php if ($validation->hasError('author')): ?>
+                                  <div class="invalid-feedback">
+                                    <?= $validation->getError("author"); ?>
+                                  </div>
+                                <?php endif; ?>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Simpan
+                            </button>
                         </div>
-                        <div class="form-group">
-                            <label for="slug">Slug</label>
-                            <input type="text" class="form-control" id="slug" name="slug">
+                        <div class="col-md-8">
+                            <label for="post_description">Deskripsi Postingan</label>
+                            <br>
+                            <textarea name="deskripsi" id="deskripsi" class="form-control <?= ($validation->hasError('deskripsi')) ? 'is-invalid' : ''; ?>"><?= $posts['deskripsi']; ?>
+                          
+                          </textarea>
+                            <?php if ($validation->hasError('deskripsi')): ?>
+                              <div class="invalid-feedback">
+                                <?= $validation->getError("deskripsi"); ?>
+                              </div>
+                            <?php endif; ?>
+                          
                         </div>
-                        <div class="form-group">
-                            <label for="kategori">Kategori Postingan</label>
-                            <input type="text" class="form-control" id="kategori" name="kategori">
-                        </div>
-                        <div class="form-group">
-                            <label for="author">Author Postingan</label>
-                            <input type="text" class="form-control" id="author" name="author">
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane">Submit</i>
-                        </button>
                     </div>
-                    <div class="col-md-8">
-                        <label for="deskripsi">Deskripsi Postingan</label>
-                        <br>
-                        <textarea name="deskripsi" id="deskripsi"></textarea>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-    <!-- Bakalan diubah -->
-    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <!-- <footer class="main-footer">
+  <footer class="main-footer">
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
-    </div>
-  </footer> -->
+  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -291,11 +304,11 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<!-- end of pemilihan konten -->
-<?= $this->endSection('content'); ?>
+
+<?= $this->endSection(); ?>
 
 <?php $this->section('myscript'); ?>
 <script>
     $('#deskripsi').summernote()
 </script>
-<?= $this->endSection('myscript'); ?>
+<?php $this->endSection(); ?>

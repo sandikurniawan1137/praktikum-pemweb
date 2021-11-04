@@ -49,6 +49,10 @@ $routes->get('/', function(){
 $routes->get('/admin', 'Templating::index');
 $routes->get('/admin/posts', 'AdminPostController::index');
 $routes->get('/admin/posts/create', 'AdminPostController::create');
+$routes->post('/admin/posts/create/store', 'AdminPostController::store');
+$routes->get('/admin/posts/edit/(:any)', 'AdminPostController::edit/$1');
+$routes->post('/admin/posts/update/(:any)', 'AdminPostController::update/$1');
+$routes->delete('/admin/posts/(:any)', 'AdminPostController::delete/$1');
 $routes->get('/register', 'Templating::reg');
 $routes->post('/saveRegister', 'Templating::saveRegister');
 $routes->get('/posts','PostController::index');
@@ -64,6 +68,7 @@ $routes->get('/about', function(){
     echo view('layouts/footer');
 });
 
+$routes->get('/admin/posts/(:any)', 'AdminPostController::look/$1');
 //$routes->get('/kuis1', 'Sandi::index');
 
 /*

@@ -196,8 +196,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="/admin" class="nav-link">
                   <p>Dashboard</p>
                 </a>
               </li>
@@ -205,7 +204,6 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/admin/posts" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>My Posts</p>
                 </a>
               </li>
@@ -237,10 +235,49 @@
     </div>
     <!-- /.content-header -->
     <div class="container">
-        <a href="/admin/posts/create" class="btn btn-primary"><i class=""></i>Tambah Data</button>
+        <a href="/admin/posts/create" class="btn btn-primary"><i class=""></i>Tambah Data</a>
     </div>
     <!-- Bakalan diubah -->
-    </section>
+    <div class="card mt-3">
+        <div class="card-header">
+          Daftar Postingan
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped text-center">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Judul</th>
+                  <th scope="col">Slug</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Kategori</th>
+                  <th scope="col">Deskripsi</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach($posts as $i => $post): ?>
+                  <tr>
+                    <th scope="row"> <?= $i + 1; ?></th>
+                    <td><a href="/admin/posts/<?= $post['slug'];?>"><?= $post['judul']; ?></a></td>
+                    <td><?= $post['slug']; ?></td>
+                    <td><?= $post['author']; ?></td>
+                    <td><?= $post['kategori']; ?></td>
+                    <td><span style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 20ch; max-height: 3ch;"><?= $post['deskripsi']; ?></span></td>
+                    <td>
+                      <a href="/admin/posts/edit/<?= $post['slug']; ?>" class="btn btn-sm btn-warning me-1"><i class="fas fa-edit"></i> Edit</a>
+                      <form action="/admin/posts/<?= $post['slug']; ?>" method="post" class="d-inline">
+                        <?= csrf_field(); ?>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-sm btn-danger me-1" onclick="return confirm('Apakah anda yakin akan menghapus?'); "><i class="fas fa-trash"></i> Delete</button>
+                      </form>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+        </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

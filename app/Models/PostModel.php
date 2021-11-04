@@ -14,7 +14,7 @@ class PostModel extends Model
 	// protected $returnType           = 'array';
 	// protected $useSoftDeletes       = false;
 	// protected $protectFields        = true;
-	protected $allowedFields        = ['post_title', 'post_description', 'post_thumbnail', 'post_author', 'post_category', 'slug', 'created_at', 'updated_at'];
+	protected $allowedFields        = ['judul', 'deskripsi', 'author', 'kategori', 'slug', 'created_at', 'edited_at'];
 
 	// Dates
 	protected $useTimestamps        = true;
@@ -39,4 +39,11 @@ class PostModel extends Model
 	// protected $afterFind            = [];
 	// protected $beforeDelete         = [];
 	// protected $afterDelete          = [];
+
+	public function getPosts($slug = false){
+        if($slug == false){
+            return $this->findAll();
+        }
+        return $this->where(['slug' => $slug])->first();
+    }
 }

@@ -197,7 +197,6 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/admin" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
@@ -205,7 +204,6 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/admin/posts" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>My Posts</p>
                 </a>
               </li>
@@ -239,7 +237,8 @@
     <!-- Bakalan diubah -->
     <div class="container mt-3">
       <div class="text-center">
-          <img src="/assets/images/linux.png" alt="logo" width="180" class="img-thumbnail rounded-circle">
+          <!-- <img src="/assets/images/linux.png" alt="logo" width="180" class="img-thumbnail rounded-circle"> -->
+          <img src="https://akcdn.detik.net.id/community/media/visual/2021/03/29/sneakers-satan-shoes-2.jpeg?w=2048" alt="logo" width="180" class="img-thumbnail rounded-circle">
           <h1 class="display-4">Praktikum Web Lanjut Dengan Studi Kasus Blog App</h1>
           <p class="lead">Programming | Codeigniter 4 | Php</p>
       </div>

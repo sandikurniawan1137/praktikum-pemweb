@@ -15,31 +15,27 @@ class Posts extends Migration
                 'unsigned'			=> true,
                 'auto_increment'	=> true,
             ],
-            'post_title'       => [
+            'judul'       => [
                 'type'				=> 'VARCHAR',
                 'constraint'		=> '100',
             ],
-            'post_description' => [
-                'type'				=> 'TEXT',
+            'deskripsi' => [
+                'type'				=> 'VARCHAR',
+                'constraint'		=> '1000',
 				'null'				=> true
             ],
-            'post_thumbnail'	=> [
+			'author'		=> [
 				'type'				=> 'VARCHAR',
 				'constraint'		=> '150',
 				'null'				=> true
 			],
-			'post_author'		=> [
+			'kategori'		=> [
 				'type'				=> 'VARCHAR',
-				'constraint'		=> 150,
-				'null'				=> true
-			],
-			'post_category'		=> [
-				'type'				=> 'VARCHAR',
-				'constraint'		=> 100
+				'constraint'		=> '100',
 			],
 			'slug'				=> [
 				'type'				=> 'VARCHAR',
-				'constraint'		=> 100,
+				'constraint'		=> '100',
 				'unique'			=> true
 			],
 			'created_at'		=> [
