@@ -239,8 +239,9 @@
         <div class="card-body">
             <h1><?= $posts['judul']; ?></h1><br>
             <p><?= $posts['deskripsi']; ?></p>
-            <p>Slug : <?= $posts['slug']; ?></p>
             <p>Author : <?= $posts['author']; ?></p>
+            <p>Kategori : <?= $posts['kategori']; ?></p>
+            <p>Slug : <?= $posts['slug']; ?></p>
         </div>
     <!-- /.content -->
   </div>
